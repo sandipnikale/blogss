@@ -15,7 +15,7 @@ tags:
 ---
 ### Different shell types: interactive, non-interactive, login
 
-#### Shells
+#### Shell
 Shells control how you interact with your computer systems. I always switch between the Bourne shell (sh), Korn shell (ksh) and Bourne-Again shell (bash) but there are numerous others.
 
 There are three types of shells
