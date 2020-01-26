@@ -5,11 +5,11 @@ date:        2019-01-15
 author:      Sandip
 summary:     CMD VS Entrypoint 
 categories:  containerization
-thumbnail:   docker 
-comment: true
+thumbnail:   docker
+comment:     true
 tags:
-     -  CMD
-     -  Entrypoint 
+      -  CMD
+      -  Entrypoint 
 ---
 
 some developers, especially newbies, still get confused when looking at the instructions that are available for use in a Dockerfile, because there are a few that may initially appear to be redundant (or, at least, have significant overlap) . RUN, CMD and ENTRYPOINT are a good example of this, and in this post I will explain the difference between CMD, RUN, and ENTRYPOINT on examples.
