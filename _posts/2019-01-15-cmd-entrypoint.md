@@ -43,14 +43,14 @@ For example let's consider the following Dockerfile:
 
 You can see this clearly if you run a container and then look at the docker ps output:
 
-{% highlight ruby %}
+```
 $ docker run -d med/test
 98aa7c371139d81d376abdc9ce01ea53cfac1f87506d9e758fee14696a0fa621
 $ docker ps -l
 CONTAINER ID        IMAGE               COMMAND             CREATED
 98aa7c371139        med/test   "/bin/sh -c 'ping loc"   5 seconds ago
-{% endhighlight %}
 
+```
 Here we've run the test image and you can see that the command which was executed was /bin/sh -c 'ping localhost'.
 
 You may run into problems with the shell form if you're building a minimal image which doesn't even include a shell binary. When Docker is constructing the command to be run it doesn't check to see if the shell is available inside the container, if you don't have /bin/sh in your image, the container will simply fail to start.
