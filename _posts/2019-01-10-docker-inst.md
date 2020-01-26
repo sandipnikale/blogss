@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Installation of Docker
-date:       2019-11-05
+date:       2019-01-10
 author:     Sandip
 summary:    Installation of Docker on CentOS 7 
 categories:  containerization
