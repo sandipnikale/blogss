@@ -125,25 +125,11 @@ when container runs as docker run -it <image> will produce output
 Hello world
 
 but when container runs with a command, e.g., docker run -it <image> /bin/bash, CMD is ignored and bash interpreter runs instead:
-
+{% highlight ruby %}
 root@98e4bed87725:/#
+{% endhighlight %}
 
 ### ENTRYPOINT
 
 ENTRYPOINTinstruction should be used when you need your container to be run as an executable. 
 I might look similar to CMD, but in fact, it is different and should be used in a different context
-
-
-{% highlight ruby %}
-class Awesome < ActiveRecord::Base
-  include EvenMoreAwesome
-
-  validates_presence_of :something
-  validates :email, email_format: true
-
-  def initialize(email, name = nil)
-    self.email = email
-    self.name = name
-  end
-end
-{% endhighlight %}
