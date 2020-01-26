@@ -1,38 +1,31 @@
 # Site settings
-title: "Carte Noire"
-email: jacob@jacobtomlinson.co.uk
-description: "A dark blog theme for Jekyll."
-baseurl: ""
-url: "http://carte-noire.jacobtomlinson.co.uk/"
-title_description: "A dark blog theme for Jekyll focusing on a clear reading experience. Large text and a narrow body makes carte noire a gorgeous read. With excellent code snippet support and integrated tools such as AddThis and Disqus giving your Jekyll blog all the functionality your users expect."
-title_image: "https://www.gravatar.com/avatar/00000000000000000000000000000000?s=500&d=mm"
+title: "Sandip Nikale"
+email: nikalesandip@yahoo.com
+description: "Sandip's Blogs"
+baseurl: https://sandipnikale.github.io/linux/
+url: https://sandipnikale.github.io/linux/
+title_description: "Hi I'm Sandip. I am Red Hat Certified Engineer  & I work at ESDS Nasik. I contribute to OpenSource in any possible way"
+title_image: "https://external-preview.redd.it/V77U-n3OuvNr2I14hRYUcyXBJ1C9dEMV3HUt3dAIViw.png?auto=webp&s=20d05cf394bd203741ddfdffa904af94fdd90544"
 google_analytics: "UA-20365477-4"
-disqus_account: cartenoire
-github_repository: https://github.com/jacobtomlinson/carte-noire
-addthis_id: ra-513c6fa83da6ec67
-post_limit: 5
+disqus_account: sandip
+github_repository: https://sandipnikale.github.io/linux
+addthis_id: ra-5c1cc27c740923bd
+post_limit: 8
 
 # Social usernames/URLs
-twitter_username: _jacobtomlinson
-github_username:  jacobtomlinson
-instagram_username: 
-reddit_username: 
-linkedin_link: http://carte-noire.jacobtomlinson.co.uk/
-google_plus_link: http://carte-noire.jacobtomlinson.co.uk/
-stackoverflow_link: http://carte-noire.jacobtomlinson.co.uk/
-xing_link:
-facebook_link:
+twitter_username: 
+github_username:  
+linkedin_link: https://sandipnikale.github.io/linux
+google_plus_link: https://sandipnikale.github.io/linux
+stackoverflow_link: https://sandipnikale.github.io/linux
 
 # Footer
-footer_left: "Made with <i class=\"fa fa-heart\"></i> by <a href=\"https://twitter.com/_JacobTomlinson\">Jacob Tomlinson</a>"
-footer_right: "&lt;/&gt; on <a href=\"https://github.com/jacobtomlinson/carte-noire\">Github</a> &nbsp;<i class=\"fa fa-github-alt\"></i>"
+footer_left: "Made with <i class=\"fa fa-heart\"></i> by <a href=\"https://sandipnikale.github.io/linux\">Sandip </a>"
+footer_right: "&lt;/&gt; on <a href=\"https://github.com/sandipnikale\">Github</a> &nbsp;<i class=\"fa fa-github-alt\"></i>"
 
 # Build settings
-markdown: kramdown
-
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-
+markdown: redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
 permalink: pretty
 exclude: [vendor]
