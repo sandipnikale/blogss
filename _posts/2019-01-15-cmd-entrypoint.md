@@ -73,11 +73,11 @@ CMD ["/bin/ping","localhost"]
 
 Rebuild the image and look at the command that is generated for the running container:
 {% highlight ruby %}
-  $ docker run -d med/test
-     fc9e3c759ea8f9793c1be8695d43e04050c9f14a4b0c723c95f2b76ee29c7628
-  $ docker ps -l
-     CONTAINER ID        IMAGE               COMMAND                 CREATED             
-     fc9e3c759ea8        med/test     "/bin/ping localhost"   2 seconds ago 
+$ docker run -d med/test
+fc9e3c759ea8f9793c1be8695d43e04050c9f14a4b0c723c95f2b76ee29c7628
+$ docker ps -l
+CONTAINER ID        IMAGE               COMMAND                 CREATED             
+fc9e3c759ea8        med/test     "/bin/ping localhost"   2 seconds ago 
 {% endhighlight %}
 
 Now /bin/ping is being run directly without the intervening shell process.
