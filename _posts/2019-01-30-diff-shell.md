@@ -1,18 +1,18 @@
 ---
 layout:     post
-title:      interactive and non-interactive login
-date:       2019-01-30
-author:     Sandip 
-summary:    Different shell types: interactive, non-interactive, login
+title:      interactive and non-interactive, login
+date:       2018-12-08 15:31:19
+author:     Sandip
+summary:    interactive, non-interactive, login
 categories: linux
 thumbnail:  linux 
 comment: true
 tags:
      -  interactive
-     -  non-interactive
-     -  login
+     - non-interactive
+     - login
+     
 ---
-
 ### Different shell types: interactive, non-interactive, login
 
 #### Shells
