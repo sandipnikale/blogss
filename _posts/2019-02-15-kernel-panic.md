@@ -14,7 +14,7 @@ tags:
 ### How To Resolve Kernel Panic Error After Installing A New Kernel
 “Kernel panic after installing a new kernel” is a situation that most of the people (admins/staff) who manages a Linux box would have come across or heard off. So, “how to resolve kernel panic error after installing a new kernel” or "kernel panic after system updates"  would be the keywords that we most of us hit on internet search engine… Google to check for solution. This happened with me as well, and I had to look out for a proper solution and did a lot of research about this. Hence, I wanted to document about some facts about kernel package, some prerequisites to be checked before installing new kernel, various methods used to cross-check if new kernel is successfully installed etc., which could help someone looking out for an answer/solution regarding this. There may be a situation where a system fails to boot into new kernel and shows some other errors and it may not be a panic message.
 
-##### Before showing on how to recover from kernel panic situation after installing new kernel, let’s understand the following topics
+#### Before showing on how to recover from kernel panic situation after installing new kernel, let’s understand the following topics
 
  - What does a kernel package would install?
 - What is the best practiced way of installing a new kernel package?
@@ -22,7 +22,7 @@ tags:
 - Which are the important configuration files that system would edit or make modifications after the installation of a kernel package?
 - Where to look out for error logs in case something goes wrong while loading a new kernel?
 
-##### What does a kernel package would install?
+#### What does a kernel package would install?
 
  Mainly it would install:
 
@@ -31,7 +31,7 @@ tags:
 - a vmlinuz (kernel core file)
 - a config & System map file.
 
-##### What is the best practiced way of installing a new kernel package?
+#### What is the best practiced way of installing a new kernel package?
 
  The best practiced way of installing a kernel package is using either “yum” or “PackageKit”, not using “rpm” command. Though it is possible to install a new kernel using “rpm” command but not an ideal one due to the following reasons:
 
@@ -41,19 +41,19 @@ tags:
 
 However, "rpm" command may not configure the new kernel to boot as the default one and this needs to be updated manually.
 
-##### What are the few precautions or checks that has to followed before loading a new kernel?
+#### What are the few precautions or checks that has to followed before loading a new kernel?
 - Make sure there is enough free space in /boot and /tmp (if /tmp is a separate file system). Keep a check on I-node usage as well by running "df -ih" command.
 -  Initiate a backup of important data & configuration files as a precautionary measure, if there is not a recent backup taken.
 - It is better to stop all applications running on the system where kernel package update is scheduled. 
 
-##### Which are the important configuration files that system would edit or make modifications during the installation of a kernel package?
+#### Which are the important configuration files that system would edit or make modifications during the installation of a kernel package?
  Whenever a new kernel package is installed, it would by default modify the file “/boot/grub2/grubenv” and add new entry to the file “/boot/grub2/grub.cfg” (/boot/efi/EFI/redhat/grub.cfg in case of EFI based systems). This is considering that new kernel package installation is always considered as the default which is defined by “UPDATEDEFAULT” parameter in the file “/etc/sysconfig/kernel”. 
 
  Also, there is “/etc/grub2.cfg” (grub.conf in case of RHEL6.x and older) which is a symbolic link to “grub.cfg” file.  The file “/boot/grub2/grubenv” is set as per the “GRUB_DEFAULT” parameter defined in “/etc/default/grub” file. 
 
  In earlier versions (RHEL6.x), there is only one grub configuration file which is “/boot/grub/grub.conf” which gets updated whenever a new kernel is loaded.
 
-##### Where to look out for error logs in case something goes wrong while loading a new kernel?
+#### Where to look out for error logs in case something goes wrong while loading a new kernel?
  - As usual, in Linux systems we could look out for errors/warnings/info related messages in "/var/log/messages" file. By default only ‘info’ and above messages gets logged in this file, so to increase this logging verbosity one could edit the configuration line of "/var/log/messages" in "/etc/rsyslog.conf" file.
 
  Change this line from :
@@ -73,7 +73,7 @@ Now, let’s see how could we replicate “kernel panic” errors and how to  tr
 
 ### Scenario 1: Kernel panic 
 
-#### System Environment used to replicate error:
+### System Environment used to replicate error:
  - This is a Virtual Machine (VM) running on Oracle Virtual Box.
 - It is installed with RHEL7.4 with two kernels as shown below (entire post is based on RHEL7.x system, however, wherever possible I’ve mentioned about changes pertaining to earlier releases):
 ![My helpful screenshot](/blogss/assets/k1.jpg)
@@ -90,11 +90,11 @@ After reboot the system become panic as shown in the below snap and failed to lo
 ![My helpful screenshot](/blogss/assets/k3.jpg)
 
 #### Let’s fix it
- ##### Step 1: Boot into older kernel
+ #### Step 1: Boot into older kernel
  To fix this, we’d need any older working kernel which could be used to boot up the system. So, reboot the panic node and when kernel countdown timer comes up, hit a key and scroll down and select an older kernel, hit "Enter" key to boot into that kernel as shown below:
 ![My helpful screenshot](/blogss/assets/k4.jpg)
 
-##### Step 2: Verify kernel files
+#### Step 2: Verify kernel files
  Once the system is up with the previous kernel, navigate to “/boot” directory and check for the presence of the below files corresponding to working and non-working kernel:
 
  - initramfs-xx.x.x.x..x.
@@ -104,7 +104,7 @@ After reboot the system become panic as shown in the below snap and failed to lo
 
 ![My helpful screenshot](/blogss/assets/k5.jpg)
 
-##### Step 3: Identify corrupted/broken files
+#### Step 3: Identify corrupted/broken files
 Let’s verify the size of each of these files and compare it with a working kernel which would help us to know if there is anything wrong, and which needs to be fixed.
 
 ![My helpful screenshot](/blogss/assets/k6.jpg)
@@ -119,11 +119,11 @@ Also, let’s run the command “lsinitrd” to list out the contents of initram
 
 As we could see from the above snap that when I ran “lsinitrd” command on non-working initramfs file it failed to show all modules and files as it did when ran on a working image file.
  
-##### Step 4: Let’s recreate initramfs image file using dracut command
+#### Step 4: Let’s recreate initramfs image file using dracut command
  At this stage, we know that we’ve to recreate the initramfs image file and this can be achieved using the command “dracut” (dracut -fv <initramfs-image-file> <kernel-version>)  (mkinitrd in case of RHEL5.x and earlier versions) as shown in the below snap:
 ![My helpful screenshot](/blogss/assets/k9.jpg)
 
-##### Step 5: Verify if the newly created initramfs file is good enough
+#### Step 5: Verify if the newly created initramfs file is good enough
  Now, let’s verify the newly built initramfs image file and check if this is properly built.
 ![My helpful screenshot](/blogss/assets/k10.jpg)
 
@@ -148,8 +148,10 @@ NOTE: In some cases the initramfs image file and vmlinuz kernel files looks good
 ```
 “yum reinstall <Kernel-Package>” 
 ```
+
 To identify if additional drivers/modules are exclusively added when a previous initramfs image file was built using the “dracut” command then one could run “lsinitrd <initramfs-image-file>|grep -i “arguments” which would show out the arguments passed.
-#### Scenario 2: Error "/dev/mapper/rhel-root" doesn't exists
+     
+### Scenario 2: Error "/dev/mapper/rhel-root" doesn't exists
 Sometimes, after installing a new kernel, everything looks good, however, after a reboot we’d come across an error “/dev/mapper/rhel-root doesn’t exists”. So, let’s see how to resolve such errors.
 
 To replicate the issue I’ve used the same setup as used in “Scenario 1” and error snap is as shown below:
