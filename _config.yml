@@ -4,7 +4,7 @@ email: nikalesandip@yahoo.com
 description: "Sandip's Blogs"
 baseurl: https://sandipnikale.github.io/blogss/
 url: https://sandipnikale.github.io/blogss/
-title_description: "Hi I'm Sandip. I am Red Hat Certified Engineer  & I work at ESDS Nasik. I contribute to OpenSource in any possible way"
+title_description: "Hi I'm Sandip. I am Red Hat Certified Engineer  & I work at Cloudera Inc. I contribute to OpenSource in any possible way"
 title_image: "https://external-preview.redd.it/V77U-n3OuvNr2I14hRYUcyXBJ1C9dEMV3HUt3dAIViw.png?auto=webp&s=20d05cf394bd203741ddfdffa904af94fdd90544"
 google_analytics: "UA-20365477-4"
 disqus_account: sandip
@@ -14,8 +14,8 @@ post_limit: 20
 
 # Social usernames/URLs
 twitter_username: 
-github_username:  
-linkedin_link: https://sandipnikale.github.io/blogss
+github_username:sandipnikale  
+linkedin_link: https://linkedin.com/in/nikalesandip
 google_plus_link: https://sandipnikale.github.io/blogss
 stackoverflow_link: https://sandipnikale.github.io/blogss
 
